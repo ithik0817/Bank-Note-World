@@ -14,9 +14,10 @@ fetch(sheetUrl)
 
             if (note) {
                 document.getElementById("note-title").textContent = note[1];
-                document.getElementById("note-image").src = note[2];
-                document.getElementById("note-description").textContent = note[3];
-                document.getElementById("note-denomination").textContent = note[4];
+                document.getElementById("note-image").src = note[0];
+                document.getElementById("note-description").textContent = note[2];
+                document.getElementById("note-owner").textContent = note[1];
+                document.getElementById("note-denomination").textContent = note[3];
                 document.getElementById("note-year").textContent = note[5];
                 document.getElementById("note-serial").textContent = note[6];
                 document.getElementById("note-signed").textContent = note[7];
