@@ -12,7 +12,7 @@ fetch(sheetUrl)
         if (window.location.pathname.includes("note.html")) {
             const urlParams = new URLSearchParams(window.location.search);
             const noteId = urlParams.get("id");
-            const note = notes.find(cols => cols[0] === noteId);
+            const note = notes.find(cols => cols[4] === noteId);
 
             if (note) {
                 document.getElementById("note-title").textContent = note[1];
@@ -34,7 +34,7 @@ fetch(sheetUrl)
             const container = document.getElementById("banknote-list");
             notes.forEach(note => {
                 const div = document.createElement("div");
-                div.innerHTML = `<a href="note.html?id=${note[0]}">${note[1]}</a>`;
+                div.innerHTML = `<a href="note.html?id=${note[4]}">${note[1]}</a>`;
                 container.appendChild(div);
             });
         }
