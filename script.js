@@ -15,7 +15,7 @@ fetch(sheetUrl)
             const note = notes.find(cols => cols[4] === noteId);
 
             if (note) {
-                document.getElementById("note-title").textContent = note[1];
+                document.getElementById("note-title").textContent = `${note[1]} ${note[3]} ${note[2]}`;
                 document.getElementById("note-image").src = note[0];
                 // Format the description field with Year, Denomination, and Description
                 document.getElementById("note-description").innerHTML = 
