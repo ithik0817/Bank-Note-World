@@ -4,8 +4,10 @@ fetch(sheetUrl)
     .then(response => response.text())
     .then(data => {
         const rows = data.split("\n").slice(1);
-        const notes = rows.map(row => row.match(/(".*?"|[^",]+)(?=\s*,|\s*$)/g))
-            .filter(cols => cols);
+        const notes = rows.map(row => {
+            return row.split(/,(?=(?:[^"]*"[^"]*")*[^"]*$)/) // Splits while ignoring commas inside quotes
+                .map(col => col.replace(/^"|"$/g, "").replace(/""/g, '"')); // Removes extra quotes
+        }).filter(cols => cols.length);
 
         if (window.location.pathname.includes("note.html")) {
             const urlParams = new URLSearchParams(window.location.search);
